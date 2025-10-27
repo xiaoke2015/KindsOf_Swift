@@ -1,0 +1,9 @@
+.DS_Store
+Podfile.lock
+Pods
+build
+Build
+DerivedData
+*.xcworkspace
+build-system/ExportedApp
+build-system/DuoTuiBa.xcarchive
