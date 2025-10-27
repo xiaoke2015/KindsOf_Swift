@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		370314462EA1BAD10081C166 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 370314452EA1BAD10081C166 /* README.md */; };
+		55439D712EAF36030013F07B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55439D702EAF36030013F07B /* SnapKit */; };
+		55439DA92EAF4D430013F07B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 55439DA82EAF4D430013F07B /* Alamofire */; };
 		9EDD445D5DA09677D4D3A9FA /* Pods_KindsOf_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4202198A43708A79C9009B8A /* Pods_KindsOf_Swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EDD445D5DA09677D4D3A9FA /* Pods_KindsOf_Swift.framework in Frameworks */,
+				55439DA92EAF4D430013F07B /* Alamofire in Frameworks */,
+				55439D712EAF36030013F07B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +148,10 @@
 			);
 			mainGroup = 37030D6F2E9F19560081C166;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				55439D6F2EAF35F30013F07B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				55439DA72EAF4D430013F07B /* XCLocalSwiftPackageReference "Submodules/Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 37030D792E9F19560081C166 /* Products */;
 			projectDirPath = "";
@@ -216,6 +224,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -244,6 +253,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -400,6 +410,36 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		55439DA72EAF4D430013F07B /* XCLocalSwiftPackageReference "Submodules/Alamofire" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Submodules/Alamofire;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		55439D6F2EAF35F30013F07B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		55439D702EAF36030013F07B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55439D6F2EAF35F30013F07B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		55439DA82EAF4D430013F07B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 37030D702E9F19560081C166 /* Project object */;
 }

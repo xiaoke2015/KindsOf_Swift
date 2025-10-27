@@ -1,0 +1,3 @@
+[submodule "Submodules/Alamofire"]
+	path = Submodules/Alamofire
+	url = https://gitee.com/xiaoke201511/Alamofire.git

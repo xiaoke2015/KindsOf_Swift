@@ -1,0 +1,63 @@
+//
+//  HomeViewController.swift
+//  KindsOf_Swift
+//
+//  Created by i-sens on 2025/10/27.
+//
+
+import UIKit
+import SnapKit
+
+class HomeViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setup()
+    }
+    
+    lazy var tableView: UITableView = {
+        let lazy = UITableView(frame: .zero, style: .plain)
+        lazy.dataSource = self
+        lazy.delegate = self
+        lazy.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        
+        lazy.separatorInset = .zero
+        lazy.estimatedRowHeight = 64
+        lazy.estimatedSectionHeaderHeight = 34
+        lazy.estimatedSectionFooterHeight = 0.1
+        lazy.sectionHeaderTopPadding = .zero
+        
+        return lazy
+    }()
+    
+    
+    func setup() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints {
+            $0.left.right.equalToSuperview()
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        
+        return cell
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+}

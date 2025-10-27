@@ -32,5 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    // AppDelegate 中实现
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // 将设备令牌转换为字符串（用于发送给后端服务器）
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("设备令牌：\(token)")
+        // 发送 token 到后端，用于定向推送
+    }
 }
 

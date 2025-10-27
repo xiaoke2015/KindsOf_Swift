@@ -66,6 +66,14 @@ pod install --no-repo-update --verbose
 
 
 
+## PrivacyInfo 开源库
+
+- [Kingfisher](https://github.com/onevcat/Kingfisher.git)
+- [RealmSwift](https://github.com/realm/realm-swift.git)
+- [Alamofire](https://github.com/Alamofire/Alamofire.git)
+- [SnapKit](https://github.com/SnapKit/SnapKit.git)
+- [IQKeyboardManagerSwift]()
+
 ## 相关链接
 
 - [cnswift](https://www.cnswift.org/)
