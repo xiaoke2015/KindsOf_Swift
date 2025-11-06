@@ -39,6 +39,20 @@ class HomeViewController: UIViewController {
             $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
+        
+        let emptyView = UIView()
+        let label = UILabel()
+        label.text = "暂无数据"
+        label.textAlignment = .center
+        emptyView.addSubview(label)
+//        emptyView.backgroundColor = .orange
+        label.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+        
+        tableView.backgroundView = emptyView
+        
     }
 }
 
@@ -48,7 +62,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        20
+        3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

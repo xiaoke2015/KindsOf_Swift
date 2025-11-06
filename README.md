@@ -9,6 +9,17 @@ pod install
 pod install --no-repo-update --verbose
 ```
 
+### 利用 swift package manager 管理第三方库
+
+```
+swift package resolve
+```
+
+1. 利用系统 package dependencies
+
+2. 在项目目录下创建 package 添加到工程中 在项目 link birany 中添加库，可以导入所有依赖的库 便于管理
+
+
 ### Info.plist 配置
 
 - 网络配置 App Transport Security Settings
@@ -63,8 +74,21 @@ pod install --no-repo-update --verbose
 - User Script Sandboxing 设置为 NO
 
     User Script Sandboxing 设置为 NO 。这个设置控制了 Xcode 脚本的沙盒限制，默认情况下，Xcode 会将脚本放入沙盒环境中，限制其访问文件系统的权限，尤其是对某些目录（例如项目文件夹之外的文件）进行修改时，会出现权限问题。
+    
+    
+    
+- iOS 26 Tabbar
+如果不想兼容，可以在InfoPlist加入新的Key
+在 infoPlist 加入 UIDesignRequiresCompatibility 值为 true，就可以在ios26使用兼容模式显示传统UI风格
 
 
+*由于 swfit package manager 陆续完善，后续将逐步淘汰 cocoapod*
+
+## 快捷指南（相关文章）
+
+- [iOS小组件开发全面总结](https://juejin.cn/post/7408931981848068096?searchId=202510201102474EDAE47657224BBA89BE)
+- [史上最全Swift Package manager介绍和使用](https://juejin.cn/post/7436934215834566691?searchId=20251018104523F391DB6C4F0D03C7CFC8#heading-30)
+- [iOS开发之HealthKit的使用](https://juejin.cn/post/7154177634707406855?searchId=20251024134457696612F8613C22709724)
 
 ## PrivacyInfo 开源库
 
@@ -72,7 +96,7 @@ pod install --no-repo-update --verbose
 - [RealmSwift](https://github.com/realm/realm-swift.git)
 - [Alamofire](https://github.com/Alamofire/Alamofire.git)
 - [SnapKit](https://github.com/SnapKit/SnapKit.git)
-- [IQKeyboardManagerSwift]()
+- [IQKeyboardManagerSwift](https://github.com/hackiftekhar/IQKeyboardManager.git) 7.1.0
 
 ## 相关链接
 

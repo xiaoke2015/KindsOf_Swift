@@ -6,5 +6,6 @@ target 'KindsOf_Swift' do
   use_frameworks!
 
   # Pods for KindsOf_Swift
+  PackageDependencies
 
 end
