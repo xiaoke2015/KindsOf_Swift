@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        loadData()
     }
     
     lazy var tableView: UITableView = {
@@ -21,7 +22,8 @@ class HomeViewController: UIViewController {
         lazy.dataSource = self
         lazy.delegate = self
         lazy.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        
+        lazy.register(HomeTestViewCell.self, forCellReuseIdentifier: "HomeTestViewCell")
+
         lazy.separatorInset = .zero
         lazy.estimatedRowHeight = 64
         lazy.estimatedSectionHeaderHeight = 34
@@ -30,6 +32,10 @@ class HomeViewController: UIViewController {
         
         return lazy
     }()
+    
+    lazy var dataArray: [String] = [
+        "HomeTestViewCell"
+    ]
     
     
     func setup() {
@@ -52,21 +58,34 @@ class HomeViewController: UIViewController {
         }
         
         tableView.backgroundView = emptyView
-        
+    }
+    
+    func loadData() {
+        Task {
+            do {
+                let resp = try await TestApi.test()
+                // 直接更新 UI（需 MainActor）
+                await MainActor.run {
+                    self.title = resp
+                }
+            } catch {
+                print("失败：\(error.localizedDescription)")
+            }
+        }
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        3
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let reusableId = dataArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: reusableId, for: indexPath)
+        if let cell2 = cell as? HomeTestViewCell {
+            
+        }
         
         return cell
     }

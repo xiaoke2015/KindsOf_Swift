@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileViewCell: UITableViewCell {
 
@@ -55,6 +56,42 @@ class ProfileViewCell: UITableViewCell {
 
     }
     
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        creatUIs()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    lazy var titleLabel: UILabel = {
+        let lazy = UILabel(frame: .zero)
+        return lazy
+    }()
+    
+    lazy var lineView: UIView = {
+        let lazy = UIView(frame: .zero)
+        lazy.backgroundColor = UIColor(named: "ColorE5E5E5")
+        return lazy
+    }()
+    
+    func creatUIs() {
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(lineView)
+        titleLabel.snp.makeConstraints {
+            $0.left.equalTo(16)
+            $0.centerY.equalToSuperview()
+        }
+        
+        lineView.snp.makeConstraints {
+            $0.left.equalTo(16)
+            $0.right.equalTo(-16)
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(0.5)
+        }
+    }
 }
 
 

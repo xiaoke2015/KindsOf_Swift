@@ -8,3 +8,4 @@ DerivedData
 build-system/ExportedApp
 build-system/DuoTuiBa.xcarchive
 SPM_Cache
+**/xcuserdata/

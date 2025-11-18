@@ -16,9 +16,9 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://gitee.com/xiaoke201511/Alamofire.git", from: "5.10.2"),
-        .package(url: "https://gitee.com/xiaoke201511/SnapKit.git", from: "5.7.1"),
-        .package(url: "https://gitee.com/xiaoke201511/Kingfisher.git", from: "8.5.0"),
+        .package(url: "https://github.com/Alamofire/Alamofire", from: "5.10.2"),
+        .package(url: "https://github.com/SnapKit/SnapKit", from: "5.7.1"),
+        .package(url: "https://github.com/onevcat/Kingfisher", from: "8.5.0"),
 //        .package(url: "https://github.com/marmelroy/Zip", from: "2.1.2"),
 //        .package(url: "https://github.com/realm/realm-swift", from: "20.0.0"),
     ],

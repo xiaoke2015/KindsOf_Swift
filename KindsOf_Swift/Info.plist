@@ -2,7 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>UIDesignRequiresCompatibility</key> <true/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+        <!-- 微信的 URL Scheme -->
+        <string>weixin</string>
+        <string>wechat</string>
+        
+        <!-- 支付宝的 URL Scheme -->
+        <string>alipay</string>
+        <string>alipays</string>
+	</array>
+	<key>UIDesignRequiresCompatibility</key>
+	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSAppTransportSecurity</key>

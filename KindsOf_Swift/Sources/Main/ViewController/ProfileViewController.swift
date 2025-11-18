@@ -27,33 +27,51 @@ class ProfileViewController: UIViewController {
         lazy.estimatedSectionHeaderHeight = 34
         lazy.estimatedSectionFooterHeight = 0.1
         lazy.sectionHeaderTopPadding = .zero
+        lazy.separatorStyle = .none
         
         return lazy
     }()
     
     
     func setup() {
+//        tableView.snp.makeConstraints {
+//            $0.left.right.equalToSuperview()
+//            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+//            $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+//        }
+        
         view.addSubview(tableView)
-        tableView.snp.makeConstraints {
-            $0.left.right.equalToSuperview()
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-        }
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }
 
 extension ProfileViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        switch section {
+        case 0:
+            return 2
+        case 1:
+            return 3
+        default:
+            return 4
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileViewCell", for: indexPath)
-        cell.textLabel?.text = "系统消息"
+        if let cell2 = cell as? ProfileViewCell {
+            cell2.titleLabel.text = "系统消息"
+        }
         
         setCornerRadiusForSectionCell(cell: cell, indexPath: indexPath, tableView: tableView, cornerRadius: 16)
         return cell
@@ -103,15 +121,18 @@ extension ProfileViewController {
 
                 cell.createCorner(CGSize(width: cornerRadius, height: cornerRadius), UIRectCorner(rawValue: (UIRectCorner.topLeft.rawValue)|(UIRectCorner.topRight.rawValue)))
                 /** 如果是最后行,左下、右下角为圆角**/
+                (cell as? ProfileViewCell)?.lineView.isHidden = false
 
             case sectionCount - 1:
                 
                 cell.createCorner(CGSize(width: cornerRadius,height: cornerRadius),UIRectCorner(rawValue: (UIRectCorner.bottomLeft.rawValue)|(UIRectCorner.bottomRight.rawValue)))
+                
+                (cell as? ProfileViewCell)?.lineView.isHidden = true
 
             default:
 
                 cell.createCorner(.zero, UIRectCorner(rawValue: (UIRectCorner.bottomLeft.rawValue)|(UIRectCorner.bottomRight.rawValue)|(UIRectCorner.topLeft.rawValue)|(UIRectCorner.topRight.rawValue)))
-
+                (cell as? ProfileViewCell)?.lineView.isHidden = false
             }
 
         }
@@ -122,6 +143,7 @@ extension ProfileViewController {
 
             cell.createCorner(CGSize(width: cornerRadius, height: cornerRadius), UIRectCorner(rawValue: (UIRectCorner.bottomLeft.rawValue)|(UIRectCorner.bottomRight.rawValue)|(UIRectCorner.topLeft.rawValue)|(UIRectCorner.topRight.rawValue)))
 
+            (cell as? ProfileViewCell)?.lineView.isHidden = true
         }
 
     }

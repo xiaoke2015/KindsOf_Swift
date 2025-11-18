@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		370314462EA1BAD10081C166 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 370314452EA1BAD10081C166 /* README.md */; };
-		552948BD2EBC36E600E98F74 /* PackageDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 552948BC2EBC36E600E98F74 /* PackageDependencies */; };
+		55F39F982ECC436800AACE09 /* PackageDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 55F39F972ECC436800AACE09 /* PackageDependencies */; };
+		55F39F9A2ECC436B00AACE09 /* TestKinds in Frameworks */ = {isa = PBXBuildFile; productRef = 55F39F992ECC436B00AACE09 /* TestKinds */; };
 		9EDD445D5DA09677D4D3A9FA /* Pods_KindsOf_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4202198A43708A79C9009B8A /* Pods_KindsOf_Swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -16,7 +17,9 @@
 		37030D782E9F19560081C166 /* KindsOf_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KindsOf_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		370314452EA1BAD10081C166 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4202198A43708A79C9009B8A /* Pods_KindsOf_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KindsOf_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55049F7D2EBC321400D4152D /* PackageDependencies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PackageDependencies; sourceTree = "<group>"; };
+		553172BE2ECAFD4A00E4F6DA /* TestKinds */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TestKinds; sourceTree = "<group>"; };
+		55F39F962ECC432600AACE09 /* PackageDependencies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PackageDependencies; sourceTree = "<group>"; };
+		55F39F9C2ECC4D7A00AACE09 /* InfoPlist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = InfoPlist.md; sourceTree = "<group>"; };
 		CF476912021763C125906C43 /* Pods-KindsOf_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindsOf_Swift.debug.xcconfig"; path = "Target Support Files/Pods-KindsOf_Swift/Pods-KindsOf_Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		DAE42C80A7F36B3ACABA7336 /* Pods-KindsOf_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindsOf_Swift.release.xcconfig"; path = "Target Support Files/Pods-KindsOf_Swift/Pods-KindsOf_Swift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,11 +35,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		37030DC42E9F1AAD0081C166 /* Resources */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		37030DE82E9F1AB30081C166 /* KindsOf_Swift */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -52,7 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				552948BD2EBC36E600E98F74 /* PackageDependencies in Frameworks */,
+				55F39F9A2ECC436B00AACE09 /* TestKinds in Frameworks */,
+				55F39F982ECC436800AACE09 /* PackageDependencies in Frameworks */,
 				9EDD445D5DA09677D4D3A9FA /* Pods_KindsOf_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,9 +72,9 @@
 			isa = PBXGroup;
 			children = (
 				370314452EA1BAD10081C166 /* README.md */,
-				55049F7D2EBC321400D4152D /* PackageDependencies */,
+				55F39F9B2ECC4D6000AACE09 /* docs */,
 				37030DE82E9F1AB30081C166 /* KindsOf_Swift */,
-				37030DC42E9F1AAD0081C166 /* Resources */,
+				553172862ECAFD0200E4F6DA /* Packages */,
 				37030D792E9F19560081C166 /* Products */,
 				22656F40DDF3F2E99B11C19C /* Pods */,
 				3E78025ADF02DE0B8AA8F2AE /* Frameworks */,
@@ -98,6 +97,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		553172862ECAFD0200E4F6DA /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				55F39F962ECC432600AACE09 /* PackageDependencies */,
+				553172BE2ECAFD4A00E4F6DA /* TestKinds */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		55F39F9B2ECC4D6000AACE09 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				55F39F9C2ECC4D7A00AACE09 /* InfoPlist.md */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,7 +131,6 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				37030DC42E9F1AAD0081C166 /* Resources */,
 				37030DE82E9F1AB30081C166 /* KindsOf_Swift */,
 			);
 			name = KindsOf_Swift;
@@ -410,9 +425,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		552948BC2EBC36E600E98F74 /* PackageDependencies */ = {
+		55F39F972ECC436800AACE09 /* PackageDependencies */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PackageDependencies;
+		};
+		55F39F992ECC436B00AACE09 /* TestKinds */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TestKinds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
