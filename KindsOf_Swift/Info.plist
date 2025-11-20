@@ -4,13 +4,10 @@
 <dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-        <!-- 微信的 URL Scheme -->
-        <string>weixin</string>
-        <string>wechat</string>
-        
-        <!-- 支付宝的 URL Scheme -->
-        <string>alipay</string>
-        <string>alipays</string>
+		<string>weixin</string>
+		<string>wechat</string>
+		<string>alipay</string>
+		<string>alipays</string>
 	</array>
 	<key>UIDesignRequiresCompatibility</key>
 	<true/>
