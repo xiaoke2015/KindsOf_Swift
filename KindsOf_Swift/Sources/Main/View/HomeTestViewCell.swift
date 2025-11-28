@@ -81,8 +81,11 @@ class HomeTestViewCell: UITableViewCell {
         stackView.addArrangedSubview(doneButton)
     }
     
+    var cancelButtonBlock: (() -> Void)?
+    
     @objc func cancelButtonClick() {
         print("cancelButtonClick")
+        cancelButtonBlock?()
     }
     
     @objc func submitButtonClick() {

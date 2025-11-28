@@ -14,8 +14,23 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-        loadData()
+//        loadData()
+        loadData2()
+        
+        socketManager.connect()
+        
+        var req = LoginRequest()
+        print("LoginRequest = \(req.toDict())")
+        print("LoginRequest2 = \(req.toDict2())")
+        req.mobile = "18912601633"
+        print("LoginRequest = \(req.toDict())")
+        print("LoginRequest2 = \(req.toDict2())")
+        req.code = "306660"
+        print("LoginRequest = \(req.toDict())")
+        print("LoginRequest2 = \(req.toDict2())")
     }
+    
+    lazy var socketManager = WebSocketManager()
     
     lazy var tableView: UITableView = {
         let lazy = UITableView(frame: .zero, style: .plain)
@@ -73,6 +88,66 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    func loadData2() {
+        let req = TestApiRequest(url: "", method: "", headers: [:])
+        
+//        TestApi.request(req) { result in
+//            switch result {
+//            case .success(let resp):
+//                print("\(resp)")
+//            case .failure(let error):
+//                print("\(error)")
+//            }
+//        }
+//        
+//        TestApi.shared.request(req, interceptor: nil) { result in
+//            switch result {
+//            case .success(let resp):
+//                print("\(resp)")
+//            case .failure(let error):
+//                print("\(error)")
+//            }
+//        }
+//        
+        TestApi.shared.getList("") { result in
+            switch result {
+            case .success(let resp):
+                print("\(resp)")
+            case .failure(let error):
+                print("\(error)")
+            }
+        }
+    }
+    
+    var userId: Int?
+    
+    var userModel: UserModel?
+    
+    func getUserInfo() {
+        let params: [String: Any] = [
+            "UserId": userId]
+            .compactMapValues { $0 }
+        
+        TestAsyncTask.run {
+            try await TestServer.shared.getUserInfo(params, interceptor: GlobalHeaderInterceptor())
+        } onSuccess: { [weak self] userInfo in
+            print("\(userInfo)")
+            self?.userModel = userInfo
+        } onError: { error in
+            print("\(error)")
+        }
+    }
+    
+    func getUserInfo2() {
+        TestAsyncTask.run {
+            try await TestServer.shared.getGroupUserInfo()
+        } onSuccess: { userInfo in
+            print("\(userInfo.0),\(userInfo.1)")
+        } onError: { error in
+            print("\(error)")
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -84,7 +159,10 @@ extension HomeViewController: UITableViewDataSource {
         let reusableId = dataArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: reusableId, for: indexPath)
         if let cell2 = cell as? HomeTestViewCell {
-            
+            cell2.cancelButtonBlock = { [weak self] in
+                let date = Date().timeIntervalSince1970
+                self?.socketManager.sendMessage("\(date)")
+            }
         }
         
         return cell

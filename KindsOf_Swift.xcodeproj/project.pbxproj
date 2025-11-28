@@ -17,9 +17,20 @@
 		37030D782E9F19560081C166 /* KindsOf_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KindsOf_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		370314452EA1BAD10081C166 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4202198A43708A79C9009B8A /* Pods_KindsOf_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KindsOf_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55197E492ED92548008BA4C8 /* 11-部署与分发.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "11-部署与分发.md"; sourceTree = "<group>"; };
+		55197E4A2ED92A1C008BA4C8 /* 12-Swift-语言特性.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "12-Swift-语言特性.md"; sourceTree = "<group>"; };
 		553172BE2ECAFD4A00E4F6DA /* TestKinds */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TestKinds; sourceTree = "<group>"; };
+		55E179E22ED818D200B351F6 /* 02-新特性.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "02-新特性.md"; sourceTree = "<group>"; };
+		55E179E32ED818E100B351F6 /* 03-常见配置问题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "03-常见配置问题.md"; sourceTree = "<group>"; };
+		55E179E42ED8191300B351F6 /* 06-架构规范.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "06-架构规范.md"; sourceTree = "<group>"; };
+		55E179E52ED81E6600B351F6 /* 05-常用第三方库.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "05-常用第三方库.md"; sourceTree = "<group>"; };
+		55E179E72ED81F5800B351F6 /* 07-Universal-Links.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "07-Universal-Links.md"; sourceTree = "<group>"; };
+		55E179E82ED82EF500B351F6 /* 09-隐私清单.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "09-隐私清单.md"; sourceTree = "<group>"; };
+		55E179E92ED82F6700B351F6 /* 10-合规与备案.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "10-合规与备案.md"; sourceTree = "<group>"; };
+		55E17A862ED8328100B351F6 /* 01-开发工具.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-开发工具.md"; sourceTree = "<group>"; };
+		55E17A872ED8344D00B351F6 /* 08-In-App-Purchase.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "08-In-App-Purchase.md"; sourceTree = "<group>"; };
+		55E17A882ED8360000B351F6 /* 04-常见UI问题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "04-常见UI问题.md"; sourceTree = "<group>"; };
 		55F39F962ECC432600AACE09 /* PackageDependencies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PackageDependencies; sourceTree = "<group>"; };
-		55F39F9C2ECC4D7A00AACE09 /* InfoPlist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = InfoPlist.md; sourceTree = "<group>"; };
 		CF476912021763C125906C43 /* Pods-KindsOf_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindsOf_Swift.debug.xcconfig"; path = "Target Support Files/Pods-KindsOf_Swift/Pods-KindsOf_Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		DAE42C80A7F36B3ACABA7336 /* Pods-KindsOf_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KindsOf_Swift.release.xcconfig"; path = "Target Support Files/Pods-KindsOf_Swift/Pods-KindsOf_Swift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,7 +120,18 @@
 		55F39F9B2ECC4D6000AACE09 /* docs */ = {
 			isa = PBXGroup;
 			children = (
-				55F39F9C2ECC4D7A00AACE09 /* InfoPlist.md */,
+				55E17A862ED8328100B351F6 /* 01-开发工具.md */,
+				55E179E22ED818D200B351F6 /* 02-新特性.md */,
+				55E179E32ED818E100B351F6 /* 03-常见配置问题.md */,
+				55E17A882ED8360000B351F6 /* 04-常见UI问题.md */,
+				55E179E52ED81E6600B351F6 /* 05-常用第三方库.md */,
+				55E179E42ED8191300B351F6 /* 06-架构规范.md */,
+				55E179E72ED81F5800B351F6 /* 07-Universal-Links.md */,
+				55E17A872ED8344D00B351F6 /* 08-In-App-Purchase.md */,
+				55E179E82ED82EF500B351F6 /* 09-隐私清单.md */,
+				55E179E92ED82F6700B351F6 /* 10-合规与备案.md */,
+				55197E492ED92548008BA4C8 /* 11-部署与分发.md */,
+				55197E4A2ED92A1C008BA4C8 /* 12-Swift-语言特性.md */,
 			);
 			path = docs;
 			sourceTree = "<group>";

@@ -14,6 +14,8 @@ class MessageViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        
+//        NotificationCenter.MainActorMessage
     }
     
     lazy var tableView: UITableView = {
