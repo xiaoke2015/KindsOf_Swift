@@ -15,10 +15,10 @@ class TestViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        testLabel.then {
-            $0.textColor = .red
-            $0.font = UIFont.systemFont(ofSize: 12)
-        }
+//        testLabel.then {
+//            $0.textColor = .red
+//            $0.font = UIFont.systemFont(ofSize: 12)
+//        }
         
 //        testLabel.
         

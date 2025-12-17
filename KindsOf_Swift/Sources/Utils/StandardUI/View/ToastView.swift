@@ -122,35 +122,35 @@ public extension UIView {
 
             let timer = Timer(timeInterval: duration, target: self, selector: #selector(UIView.toastTimerDidFinish(_:)), userInfo: nil, repeats: false)
             RunLoop.main.add(timer, forMode: .common)
-            objc_setAssociatedObject(self, &ToastKeys.timer, timer, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, ToastKeys.timer, timer, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 
-    func makeToast(_ message: String?, offset: CGPoint = .zero, completion: (() -> Void)? = nil) {
-//        timerStop()
-        let toast = ToastView(message: message)
-        objc_setAssociatedObject(self, &ToastKeys.activeToasts, toast, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        addSubview(toast)
-        toast.center = CGPoint(x: bounds.width / 2 + offset.x, y: bounds.height / 2 + offset.y)
-        toast.show(duration: 1.5, completion: completion)
-    }
+//    func makeToast(_ message: String?, offset: CGPoint = .zero, completion: (() -> Void)? = nil) {
+////        timerStop()
+//        let toast = ToastView(message: message)
+//        objc_setAssociatedObject(self, ToastKeys.activeToasts, toast, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+//        addSubview(toast)
+//        toast.center = CGPoint(x: bounds.width / 2 + offset.x, y: bounds.height / 2 + offset.y)
+//        toast.show(duration: 1.5, completion: completion)
+//    }
 
     func hideToast() {
-        if let toast = objc_getAssociatedObject(self, &ToastKeys.activeToasts) as? UIView {
+        if let toast = objc_getAssociatedObject(self, ToastKeys.activeToasts) as? UIView {
             UIView.animate(withDuration: ToastManager.fadeDuration, delay: 0.0, options: [.curveEaseIn, .beginFromCurrentState], animations: {
                 toast.alpha = 0.0
             }) { _ in
                 toast.removeFromSuperview()
-                objc_setAssociatedObject(self, &ToastKeys.activeToasts, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self, ToastKeys.activeToasts, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
     }
 
     func makeToastActivity(_ size: CGSize = CGSize(width: 100, height: 100), offset: CGPoint = .zero) {
-        var toast = objc_getAssociatedObject(self, &ToastKeys.activityView) as? ToastView
+        var toast = objc_getAssociatedObject(self, ToastKeys.activityView) as? ToastView
         if toast == nil {
             toast = ToastView(activity: CGRect(origin: .zero, size: size))
-            objc_setAssociatedObject(self, &ToastKeys.activityView, toast, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, ToastKeys.activityView, toast, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
 
         if let toastView = toast {
@@ -161,12 +161,12 @@ public extension UIView {
     }
 
     func hideToastActivity() {
-        if let toast = objc_getAssociatedObject(self, &ToastKeys.activityView) as? UIView {
+        if let toast = objc_getAssociatedObject(self, ToastKeys.activityView) as? UIView {
             UIView.animate(withDuration: ToastManager.fadeDuration, delay: 0.0, options: [.curveEaseIn, .beginFromCurrentState], animations: {
                 toast.alpha = 0.0
             }) { _ in
                 toast.removeFromSuperview()
-                objc_setAssociatedObject(self, &ToastKeys.activityView, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self, ToastKeys.activityView, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
     }
@@ -215,11 +215,11 @@ extension UIView {
     }
 
     private func timerStop() {
-        if let toast = objc_getAssociatedObject(self, &ToastKeys.activeToasts) as? UIView {
+        if let toast = objc_getAssociatedObject(self, ToastKeys.activeToasts) as? UIView {
             toast.removeFromSuperview()
         }
 
-        if let timer = objc_getAssociatedObject(self, &ToastKeys.timer) as? Timer {
+        if let timer = objc_getAssociatedObject(self, ToastKeys.timer) as? Timer {
             timer.invalidate()
         }
     }

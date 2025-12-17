@@ -33,7 +33,6 @@ class TabbarViewController: UITabBarController {
         
         viewControllers = [homeNav, squareNav, messageNav, profileNav]
         
-
     }
     
     func ad() {

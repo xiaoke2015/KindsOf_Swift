@@ -8,9 +8,9 @@
 import UIKit
 
 public extension UIButton {
-    func repeatClick() {
+    func repeatClick(deadline: DispatchTime = .now() + 1) {
         isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
             self.isUserInteractionEnabled = true
         }
     }

@@ -15,7 +15,8 @@ class TestApi {
     static func test() async throws -> String {
         let url = "https://jsonplaceholder.typicode.com/posts"
         
-        var req = URLRequest(url: URL(string: url)!)
+        var req = try URLRequest(url: url.asURL())
+        req.httpMethod = "GET"
         let (data, response) = try await URLSession(configuration: .default).data(for: req)
         let test = String(data: data, encoding: .utf8)
         let resp = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)

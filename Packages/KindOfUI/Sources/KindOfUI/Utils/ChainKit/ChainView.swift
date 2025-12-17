@@ -7,7 +7,7 @@
 
 import UIKit.UIView
 
-extension UIView: Compatible {}
+@MainActor extension UIView: Compatible {}
 
 public extension ChainView where T: UIView {
     func backgroundColor(_ color: UIColor?) -> Self {

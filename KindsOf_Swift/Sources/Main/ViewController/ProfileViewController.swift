@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import KindOfUI
 
 class ProfileViewController: UIViewController {
 
@@ -14,6 +15,14 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        
+//        Router.shared.viewControllers2["api.test.com"] = { node in
+//            UIViewController()
+//        }
+        
+        Router.shared.register("api.test.com") { node in
+            UIViewController()
+        }
     }
     
     lazy var tableView: UITableView = {
@@ -85,6 +94,9 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        Router.shared.push2(url: "https://api.test.com?k=1&page=2")
+
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

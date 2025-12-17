@@ -114,10 +114,10 @@ public extension UIView {
 
     var blankView: UIView? {
         get {
-            objc_getAssociatedObject(self, &Keys.blankView) as? UIView
+            objc_getAssociatedObject(self, Keys.blankView) as? UIView
         }
         set {
-            objc_setAssociatedObject(self, &Keys.blankView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, Keys.blankView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }

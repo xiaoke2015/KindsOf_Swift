@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import KindOfUI
 
 class HomeViewController: UIViewController {
     
@@ -161,7 +162,8 @@ extension HomeViewController: UITableViewDataSource {
         if let cell2 = cell as? HomeTestViewCell {
             cell2.cancelButtonBlock = { [weak self] in
                 let date = Date().timeIntervalSince1970
-                self?.socketManager.sendMessage("\(date)")
+//                self?.socketManager.sendMessage("\(date)")
+                self?.view.makeToast("支付成功，请到下个页面完成相关操作")
             }
         }
         

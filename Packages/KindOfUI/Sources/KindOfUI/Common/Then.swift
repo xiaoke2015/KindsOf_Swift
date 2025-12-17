@@ -1,15 +1,16 @@
 //
 //  Then.swift
-//  TestKinds
+//  iSensAir
 //
-//  Created by i-sens on 2025/11/18.
+//  Created by 李加建 on 2025/11/14.
 //
 
 import Foundation
+import CoreGraphics
 
-protocol Then {}
+public protocol Then {}
 
-extension Then where Self: Any {
+public extension Then where Self: Any {
     @discardableResult
     func then(_ block: (inout Self) -> Void) -> Self {
         var copy = self
@@ -18,7 +19,7 @@ extension Then where Self: Any {
     }
 }
 
-extension Then where Self: AnyObject {
+public extension Then where Self: AnyObject {
     @discardableResult
     func then(_ block: (Self) -> Void) -> Self {
         block(self)
@@ -26,5 +27,9 @@ extension Then where Self: AnyObject {
     }
 }
 
-
 extension NSObject: Then {}
+extension DateComponents: Then {}
+extension CGPoint: Then {}
+extension CGRect: Then {}
+extension CGSize: Then {}
+extension CGVector: Then {}

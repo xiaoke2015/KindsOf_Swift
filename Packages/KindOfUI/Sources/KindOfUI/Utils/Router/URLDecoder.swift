@@ -44,4 +44,17 @@ class URLDecoder {
             self.params[key] = value
         }
     }
+    
+    var string: String?
+//    var url: URL?
+//    var scheme: String?
+//    var host: String?
+    var query: String?
+    
+    var urlComponents: URLComponents?
+    
+    init(string: String?) {
+        guard let string = string else { return }
+        urlComponents = URLComponents(string: string)
+    }
 }

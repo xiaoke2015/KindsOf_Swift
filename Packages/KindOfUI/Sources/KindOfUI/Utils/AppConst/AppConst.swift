@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-public class AppConst {
+@MainActor public class AppConst {
     init() {}
 
     /// bundleId
@@ -40,22 +40,22 @@ public class AppConst {
     }
 
     /// e.g. @"iPhone", @"iPod touch"
-    public static var deviceModel: String {
+    @MainActor public static var deviceModel: String {
         UIDevice.current.model
     }
 
     /// 设备系统版本  e.g. "4.0"
-    public static var systemVersion: String {
+    @MainActor public static var systemVersion: String {
         UIDevice.current.systemVersion
     }
 
     /// e.g. @"iPhone", @"iPod touch"
-    public static var systemName: String {
+    @MainActor public static var systemName: String {
         UIDevice.current.name
     }
 
     /// 设备唯一标识符
-    public static var deviceUUID: String {
+    @MainActor public static var deviceUUID: String {
         UIDevice.current.identifierForVendor?.uuidString ?? ""
     }
 

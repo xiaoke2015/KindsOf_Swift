@@ -7,7 +7,24 @@
 
 import UIKit
 
-public class Router {
+extension UIApplication {
+    /// 获取当前活跃的 key window（支持多场景）
+    var currentKeyWindow: UIWindow? {
+        // iOS 13+ 支持多场景，需要从连接的场景中获取
+        if #available(iOS 13.0, *) {
+            return connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
+                .first { $0.isKeyWindow }
+        } else {
+            // iOS 13 之前使用旧的 keyWindow
+            return keyWindow
+        }
+    }
+}
+
+
+@MainActor public class Router {
     /// 路由管理单例
     public static var shared = Router()
 
@@ -16,16 +33,26 @@ public class Router {
 
     /// 路由的根控制器
     public var rootViewController: UIViewController? {
-        UIApplication.shared.keyWindow?.rootViewController
+        UIApplication.shared.currentKeyWindow?.rootViewController
     }
 
     /// 注册路由可跳转的 Controllers
     var viewControllers: [String: RouterDelegate.Type] = [:]
+    
+    var viewControllers2: [String: (URLNode) -> UIViewController] = [:]
+    
+    private let delegates = NSHashTable<UITableViewDataSource>.weakObjects()
+    
+    public func register(_ url: String, node: @escaping (URLNode) -> UIViewController) {
+        viewControllers2[url] = node
+    }
+
 }
 
 public extension Router {
     /// push 跳转 url传参 例 path?name=111
     func push(url: String, animated: Bool = true) {
+        let urlComponents = URLComponents(string: "")
         let decoder = URLDecoder(urlString: url)
         push(url: decoder.url, params: decoder.params, animated: animated)
     }
@@ -40,6 +67,16 @@ public extension Router {
     func push(url: String, params: [String: Any], animated: Bool = true) {
         guard let type = viewControllers[url] else { return }
         guard let next = type.initialize(params: params) else { return }
+        navigationController?.pushViewController(next, animated: animated)
+    }
+    
+    func push2(url: String?, params: [String: Any]? = nil, data: Data? = nil, animated: Bool = true, dismiss: (() -> Void)? = nil) {
+        let node = URLNode(string: url)
+        node.data = data
+        node.object = params
+        node.dismiss = dismiss
+        guard let host = node.host else { return }
+        guard let next = viewControllers2[host]?(node) else { return }
         navigationController?.pushViewController(next, animated: animated)
     }
 

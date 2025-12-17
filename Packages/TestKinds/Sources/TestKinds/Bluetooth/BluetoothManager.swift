@@ -82,7 +82,7 @@ extension BluetoothManager: CBPeripheralDelegate {
         if let characteristics = service.characteristics {
             for characteristic in characteristics {
                 
-                characteristic.uuid
+                print("characteristic.uuid = \(characteristic.uuid as Any)")
             }
         }
     }
@@ -90,6 +90,7 @@ extension BluetoothManager: CBPeripheralDelegate {
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: (any Error)?) {
         if let re = characteristic.value {
             let s = String(data: re, encoding: .utf8)
+            print("s = \(s as Any)")
         }
         switch characteristic.uuid.uuidString {
         case "2A29":
