@@ -25,23 +25,22 @@ extension Notification.Name {
 
 
 
-struct TrainDidArriveMessage: NotificationCenter.MainActorMessage {
-    typealias Subject = Train
-    
-    struct Train {
-        
-    }
-}
+//struct TrainDidArriveMessage: NotificationCenter.MainActorMessage {
+//    typealias Subject = Train
+//    
+//    struct Train {
+//        
+//    }
+//}
 
-extension UIViewController {
-    func ad() {
-        if #available(iOS 26.0, *) {
-            NotificationCenter.default.post(TrainDidArriveMessage())
-        } else {
-            // Fallback on earlier versions
-        }
-        NotificationCenter.default.post(.init(name: .userProfileUpdated))
-        
-//        NotificationCenter.default.addObserver(of: <#T##AnyObject?#>, for: <#T##NotificationCenter.AsyncMessage.Type#>, using: <#T##(NotificationCenter.AsyncMessage) async -> Void#>)
-    }
-}
+//extension UIViewController {
+//    func ad() {
+//        if #available(iOS 26.0, *) {
+//            NotificationCenter.default.post(TrainDidArriveMessage())
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        NotificationCenter.default.post(.init(name: .userProfileUpdated))
+//        
+//    }
+//}
